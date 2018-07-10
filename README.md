@@ -6,9 +6,9 @@ Basic REST API in Go
 go run main.go
 ```
 
-# Create a new post
+# Create a new pament record
 ```
-curl -H "Content-Type: application/json" -X POST -d '{"title": "Hello world", "text": "intro"}' http://127.0.0.1:3000/posts
+curl -H "Content-Type: application/json" -X POST -d @payment.json http://127.0.0.1:3000/payments
 ```
 
 # Get version
@@ -16,17 +16,17 @@ curl -H "Content-Type: application/json" -X POST -d '{"title": "Hello world", "t
 curl http://127.0.0.1:3000/version
 ```
 
-# Get posts
+# Get payments
 ```
-curl http://127.0.0.1:3000/posts
+curl http://127.0.0.1:3000/payments
 ```
 
 # Build
 ```
-GOOS=linux GOARCH=amd64 go build -ldflags "-X github.com/achanda/gorest/version.Version=`git rev-parse HEAD`" -o gorest .
+GOOS=linux GOARCH=amd64 go build -ldflags "-X github.com/achanda/testrest/version.Version=`git rev-parse HEAD`" -o testrest .
 ```
 
 # Generate image
 ```
-docker build . -t gorest
+docker build . -t testrest
 ```
